@@ -17,7 +17,7 @@ public class DHLocationService: NSObject, CLLocationManagerDelegate, ObservableO
     private var locationPublisher: AnyPublisher<CLAuthorizationStatus, Never>?
     @Published var status: CLAuthorizationStatus = .notDetermined
 
-    override init() {
+    public override init() {
         super.init()
         locationManager.delegate = self
         locationPublisher = locationManager
@@ -26,7 +26,7 @@ public class DHLocationService: NSObject, CLLocationManagerDelegate, ObservableO
             .eraseToAnyPublisher()
     }
 
-    func requestAuthorization() {
+    public func requestAuthorization() {
         locationManager.requestWhenInUseAuthorization()
     }
 
