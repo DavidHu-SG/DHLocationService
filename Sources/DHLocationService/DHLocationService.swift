@@ -15,7 +15,7 @@ import Combine
 public class DHLocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
     private let locationManager = CLLocationManager()
     private var locationPublisher: AnyPublisher<CLAuthorizationStatus, Never>?
-    @Published var status: CLAuthorizationStatus = .notDetermined
+    @Published public var status: CLAuthorizationStatus = .notDetermined
 
     public override init() {
         super.init()
