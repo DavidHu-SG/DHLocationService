@@ -11,7 +11,8 @@
 import CoreLocation
 import Combine
 
-class DHLocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
+@available(iOS 15, macOS 12, watchOS 8, tvOS 15, *)
+public class DHLocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
     private let locationManager = CLLocationManager()
     private var locationPublisher: AnyPublisher<CLAuthorizationStatus, Never>?
     @Published var status: CLAuthorizationStatus = .notDetermined
@@ -29,7 +30,7 @@ class DHLocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
         locationManager.requestWhenInUseAuthorization()
     }
 
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         self.status = status
     }
 }
