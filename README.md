@@ -65,6 +65,36 @@ Obtain the user's current region using:
 locationService.getUserCurrentRegion()
 ```
 
+## Request Permission
+
+Improving the documentation for the Info.plist configuration is essential to ensure that users of your framework understand the purpose of the permissions and how to set them up correctly. Here's a revised explanation:
+
+To ensure that DHLocationService functions correctly, you must request permission to use location services from your app's users. This involves adding a key to your Info.plist file with a brief explanation that the system presents to the user when requesting this permission.
+
+Here's how you can add the required key for when-in-use location access:
+
+1. Open your app's `Info.plist` file in Xcode.
+2. Right-click and select "Add Row" to add a new key.
+3. Type in `NSLocationWhenInUseUsageDescription` for the key.
+4. Set the type to `String`.
+5.For the value, provide a user-friendly description that explains why your app requires access to the user's location. This message should clearly state the benefit for the user to grant this permission.
+
+Your `Info.plist` entry should look like this:
+
+```XML
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>Your custom message explaining why the app needs access to the user's location when in use.</string>
+```
+
+Replace Your custom message explaining why the app needs access to the user's location when in use. with your specific explanation. For instance, if your app uses the location to suggest nearby points of interest, the description could be:
+
+```XML
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>To provide you with personalized recommendations for nearby places, we require access to your location when using the app.</string>
+```
+
+Note that the description must be clear and concise, as Apple will review this text during the app submission process.
+
 ## Example
 To see DHLocationService in action, clone the Example repository and explore the code provided in the project. <br/>
 [Example Project](https://github.com/DavidHu-SG/DHLocationServiceSample)
