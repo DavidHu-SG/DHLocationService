@@ -10,6 +10,7 @@
 
 import CoreLocation
 import Combine
+import MapKit
 
 @available(iOS 15, macOS 12, watchOS 8, tvOS 15, *)
 public class DHLocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
@@ -32,5 +33,23 @@ public class DHLocationService: NSObject, CLLocationManagerDelegate, ObservableO
 
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         self.status = status
+    }
+    
+    public func getCurrentLocation() -> CLLocationCoordinate2D? {
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+
+        guard let currentLocation = locationManager.location else {
+            debugPrint("test log Error: Could not determine current location.")
+            return nil
+        }
+        
+        return currentLocation.coordinate
+    }
+
+    public func getUserCurrentRegion() -> MKCoordinateRegion? {
+        guard let currentLocation = getCurrentLocation() else { return nil }
+        let mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: currentLocation.latitude, longitude: currentLocation.longitude), span: MKCoordinateSpan(latitudeDelta: 0.008, longitudeDelta: 0.008))
+        return mapRegion
     }
 }
