@@ -82,5 +82,5 @@ Your contributions make the open source community a better place! If you would l
 David Hu, davidhu.sg66@gmail.com
 
 ## License
-DHLocationService is released under the MIT license. See LICENSE for details.
+DHLocationService is released under the MIT license. See [LICENSE](https://github.com/DavidHu-SG/DHLocationService/blob/main/LICENSE) for details.
 
