@@ -20,7 +20,7 @@ To integrate DHLocationService into your Xcode project using Swift Package Manag
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/[Username]/DHLocationService.git", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/DavidHu-SG/DHLocationService.git", .upToNextMajor(from: "1.0.0"))
 ]
 ```
 
