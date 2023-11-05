@@ -81,6 +81,6 @@ Your contributions make the open source community a better place! If you would l
 ## Author
 David Hu, davidhu.sg66@gmail.com
 
-License
+## License
 DHLocationService is released under the MIT license. See LICENSE for details.
 
